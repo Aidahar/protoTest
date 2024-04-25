@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "trudieis.message.v1;messagev1";
+
+package testMessage;
+
+import "google/protobuf/timestamp.proto";
+
+service Messager {
+    rpc GetMessage(MessageRequest) returns (MessageResponse) {}
+}
+
+message MessageRequest {
+    string get = 1;
+}
+
+message MessageResponse {
+    string session_id = 1;
+    double frequency = 2;
+    google.protobuf.Timestamp data = 3;
+}
